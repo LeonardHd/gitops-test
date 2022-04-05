@@ -1,0 +1,8 @@
+resources:
+- ./../../../apps/moonshot-sample/v1
+- input-configmap.yaml
+- process-configmap.yaml
+- output-configmap.yaml
+- namespace.yaml
+
+namespace: moonshot-sample

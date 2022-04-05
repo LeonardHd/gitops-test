@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moonshot-process
+  labels:
+    app: moonshot-process
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moonshot-process
+  template:
+    metadata:
+      labels:
+        app: moonshot-process
+    spec:
+      containers:
+      - name: moonshot-process
+        image: "moonshot.azurecr.io/moonshot-samples-process:latest"
+        volumeMounts:
+          - mountPath: /app/Configuration
+            name: config
+      volumes:
+      - name: config
+        configMap:
+          name: process-configuration
+          items:
+          - key: "config.tags"
+            path: configuration.yml

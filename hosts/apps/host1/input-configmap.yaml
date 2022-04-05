@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: input-configuration
+data:
+  config.tags: |
+    outputtopic: input
+    tags:
+    - Tag11
+    - Tag12
+    - Tag13
+    - Tag20
+    mqtturl: mosquitto.mosquitto.svc.cluster.local

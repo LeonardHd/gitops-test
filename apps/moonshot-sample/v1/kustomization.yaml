@@ -1,0 +1,4 @@
+resources:
+- moonshot-input-deployment.yaml
+- moonshot-process-deployment.yaml
+- moonshot-output-deployment.yaml

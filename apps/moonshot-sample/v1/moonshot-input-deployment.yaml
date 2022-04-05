@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moonshot-input
+  labels:
+    app: moonshot-input
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moonshot-input
+  template:
+    metadata:
+      labels:
+        app: moonshot-input
+    spec:
+      containers:
+      - name: moonshot-input
+        image: "moonshot.azurecr.io/moonshot-samples-input:latest"
+#        command:
+#          - sleep
+#          - "99999"
+        volumeMounts:
+        - mountPath: /app/Configuration
+          name: config
+      volumes:
+      - name: config
+        configMap:
+          name: input-configuration
+          items:
+          - key: "config.tags"
+            path: configuration.yml
