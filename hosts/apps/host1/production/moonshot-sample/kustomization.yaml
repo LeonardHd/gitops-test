@@ -1,5 +1,5 @@
 resources:
-- ./../../../apps/moonshot-sample/v1
+- ./../../../../../apps/moonshot-sample/v1
 - input-configmap.yaml
 - process-configmap.yaml
 - output-configmap.yaml

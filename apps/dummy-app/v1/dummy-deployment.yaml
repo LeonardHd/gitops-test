@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-app
+  labels:
+    app: dummy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dummy-app
+  template:
+    metadata:
+      labels:
+        app: dummy-app
+    spec:
+      containers:
+      - name: dummy-app
+        image: "busybox:latest"
+        command:
+        - sleep
+        - "99999"
