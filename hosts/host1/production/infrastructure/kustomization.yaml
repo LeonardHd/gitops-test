@@ -1,0 +1,4 @@
+resources:
+- ./../../../../infrastructure/base
+
+namespace: mosquitto
