@@ -6,7 +6,7 @@ namespace import_gitops
 {
     public class Kustomize
     {
-       public static async Task<List<object>> BuildAsync(string directory)
+       public static async Task<List<IKubernetesObject>> BuildAsync(string directory)
         {
             var s = Shell.Run("kubectl", $@"kustomize {directory}");
 
@@ -18,8 +18,16 @@ namespace import_gitops
 
             using(var ms = new MemoryStream(Encoding.ASCII.GetBytes(s)))
             {
-                return await KubernetesYaml.LoadAllFromStreamAsync(ms, typeMap);
+                var obj = await KubernetesYaml.LoadAllFromStreamAsync(ms, typeMap);
+
+                return obj.ConvertAll(new Converter<object, IKubernetesObject>(ToIKubernetesObject));
+
             }
+        }
+
+        public static IKubernetesObject ToIKubernetesObject(object obj)
+        {
+            return (IKubernetesObject)obj;
         }
     }
 }

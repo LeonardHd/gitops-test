@@ -20,6 +20,11 @@ namespace import_gitops.Models
                 foreach (var application in environment.Applications)
                 {
                     sb.AppendLine($"\t\t{application.Name}");
+                    
+                    foreach (var kubernetesObject in application.Objects)
+                    {
+                        sb.AppendLine($"\t\t\t{kubernetesObject.Kind}");
+                    }
                 }
             }
 
