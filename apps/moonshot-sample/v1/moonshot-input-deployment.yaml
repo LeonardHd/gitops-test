@@ -30,3 +30,5 @@ spec:
           items:
           - key: "config.tags"
             path: configuration.yml
+          - key: "tags"
+            path: tags-configuration.yml
