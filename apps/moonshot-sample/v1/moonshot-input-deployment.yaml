@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: moonshot-input
-        image: "moonshot.azurecr.io/moonshot-samples-input:latest"
+        image: scr.io/moonshot-samples-input:latest
 #        command:
 #          - sleep
 #          - "99999"
