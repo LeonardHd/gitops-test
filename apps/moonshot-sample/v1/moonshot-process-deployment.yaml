@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: moonshot-process
-        image: "moonshot.azurecr.io/moonshot-samples-process:latest"
+        image: scr.io/moonshot-samples-process:latest
         volumeMounts:
           - mountPath: /app/Configuration
             name: config
