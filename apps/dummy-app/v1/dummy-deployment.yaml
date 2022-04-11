@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: dummy-app
-        image: "busybox:latest"
+        image: scr.io/busybox:latest
         command:
         - sleep
         - "99999"
